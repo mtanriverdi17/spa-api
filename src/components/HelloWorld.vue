@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>Mehmet Tanriverdi Facebok-Api Deneme</h1>
-    <a href="javascript:void(0)" v-on:click="sendRequest">Send Request</a>
+    <a href="javascript:void(0)" v-on:click="denemeRequest">Send Request</a>
     <br />
     <img
       :src="deneme"
@@ -38,6 +38,11 @@ export default {
       $.ajax(settings).done(function(response) {
         $("#image").attr("src", response.media_url);
       });
+    },
+    async denemeRequest() {
+      const res = await fetch("api/question");
+      const data = await res.json();
+      console.log(data);
     },
   },
 };
